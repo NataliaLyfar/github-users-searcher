@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useGetUserQuery } from 'redux/githubUsers/githubUsersApi';
-import { Card, Typography, Button } from 'antd';
+import { Card, Typography } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 
@@ -39,7 +39,10 @@ export const UserCard = () => {
 
   const handleToggleFavorite = () => {
     if (!isFavorited) {
-      const newStorageItem = [...storageItem, { avatar, userLogin, reposUrl }];
+      const newStorageItem = [
+        ...storageItem,
+        { avatar, userLogin, reposUrl, isFavorited },
+      ];
       setStorageItem(newStorageItem);
       localStorage.setItem('favorites', JSON.stringify(newStorageItem));
     } else {
@@ -53,7 +56,11 @@ export const UserCard = () => {
 
   return (
     <Card style={{ width: 320 }} cover={<img src={avatar} alt="user avatar" />}>
-      <StyledButton type="text" onClick={handleToggleFavorite}>
+      <StyledButton
+        isFavorited={isFavorited}
+        type="button"
+        onClick={handleToggleFavorite}
+      >
         <HeartOutlined />
       </StyledButton>
       {name && <Title level={3}>{name}</Title>}
@@ -76,14 +83,21 @@ export const UserCard = () => {
   );
 };
 
-const StyledButton = styled(Button)`
+const StyledButton = styled.button`
   position: absolute;
-  right: 0;
+  right: 20px;
+  bottom: 39%;
   background-color: transparent;
-  &:hover {
+  outline: none;
+  border: none;
+  &:hover,
+  &:focus,
+  &:active {
     svg {
       color: ${p => p.theme.colors.accent};
     }
     background-color: transparent;
+    cursor: pointer;
   }
+  color: ${p => (p.isFavorited ? p.theme.colors.accent : p.theme.colors.black)};
 `;
