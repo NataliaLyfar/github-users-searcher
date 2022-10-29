@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchGithubUsersQuery } from 'redux/githubUsers/githubUsersApi';
 import { getSearch } from 'redux/githubUsers/searcherSelector';
-import { columns } from 'ui';
-import { Table, Row, Col, Empty, Button, Space } from 'antd';
+import { Link, useLocation } from 'react-router-dom';
+import { Table, Row, Col, Empty, Button, Space, Typography, Image } from 'antd';
 import { CaretLeftFilled, CaretRightFilled } from '@ant-design/icons';
 import { Spinner, Box } from 'components/ui';
 
@@ -11,6 +11,7 @@ export const UsersList = () => {
   const [skip, setSkip] = useState(true);
   const query = useSelector(getSearch);
   const [page, setPage] = useState(1);
+  const location = useLocation();
 
   useEffect(() => {
     if (query.length > 0) setSkip(false);
@@ -27,6 +28,56 @@ export const UsersList = () => {
         error: isError,
       }),
     });
+
+  const columns = [
+    {
+      title: 'avatar',
+      dataIndex: 'avatar_url',
+      key: 'avatar_url',
+      render: avatar_url => (
+        <Image src={avatar_url} alt="user avatar" width={44} />
+      ),
+    },
+    {
+      title: 'User',
+      dataIndex: 'login',
+      key: 'login',
+      render: text => (
+        <Link to={`/users/${text}`} state={{ from: location }}>
+          <Typography.Text copyable>{text}</Typography.Text>
+        </Link>
+      ),
+      sorter: (a, b) => a.login.length - b.login.length,
+    },
+    {
+      title: 'Type',
+      dataIndex: 'type',
+      key: 'type',
+      filters: [
+        {
+          text: 'User',
+          value: 'User',
+        },
+        {
+          text: 'Organization',
+          value: 'Organization',
+        },
+      ],
+      onFilter: (value, item) => item.type.includes(value),
+      responsive: ['md'],
+    },
+    {
+      title: 'Repo url',
+      dataIndex: 'html_url',
+      key: 'html_url',
+      responsive: ['md'],
+      render: url => (
+        <Typography.Link href={url} target="_blank" rel="noreferrer">
+          {url}
+        </Typography.Link>
+      ),
+    },
+  ];
 
   return (
     <>
