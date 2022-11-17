@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/github-users-searcher/static/css/main.dddd41f1.css",
-    "main.js": "/github-users-searcher/static/js/main.34aceadf.js",
-    "static/js/391.558d27cb.chunk.js": "/github-users-searcher/static/js/391.558d27cb.chunk.js",
+    "main.css": "/github-users-searcher/static/css/main.30fb6a82.css",
+    "main.js": "/github-users-searcher/static/js/main.2905cd1d.js",
+    "static/js/391.3011e5dc.chunk.js": "/github-users-searcher/static/js/391.3011e5dc.chunk.js",
     "static/js/840.b3395e39.chunk.js": "/github-users-searcher/static/js/840.b3395e39.chunk.js",
     "static/js/511.0ac3add8.chunk.js": "/github-users-searcher/static/js/511.0ac3add8.chunk.js",
     "static/js/185.bdbc1892.chunk.js": "/github-users-searcher/static/js/185.bdbc1892.chunk.js",
     "static/js/235.8d1b81a1.chunk.js": "/github-users-searcher/static/js/235.8d1b81a1.chunk.js",
     "index.html": "/github-users-searcher/index.html",
-    "main.dddd41f1.css.map": "/github-users-searcher/static/css/main.dddd41f1.css.map",
-    "main.34aceadf.js.map": "/github-users-searcher/static/js/main.34aceadf.js.map",
-    "391.558d27cb.chunk.js.map": "/github-users-searcher/static/js/391.558d27cb.chunk.js.map",
+    "main.30fb6a82.css.map": "/github-users-searcher/static/css/main.30fb6a82.css.map",
+    "main.2905cd1d.js.map": "/github-users-searcher/static/js/main.2905cd1d.js.map",
+    "391.3011e5dc.chunk.js.map": "/github-users-searcher/static/js/391.3011e5dc.chunk.js.map",
     "840.b3395e39.chunk.js.map": "/github-users-searcher/static/js/840.b3395e39.chunk.js.map",
     "511.0ac3add8.chunk.js.map": "/github-users-searcher/static/js/511.0ac3add8.chunk.js.map",
     "185.bdbc1892.chunk.js.map": "/github-users-searcher/static/js/185.bdbc1892.chunk.js.map",
     "235.8d1b81a1.chunk.js.map": "/github-users-searcher/static/js/235.8d1b81a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dddd41f1.css",
-    "static/js/main.34aceadf.js"
+    "static/css/main.30fb6a82.css",
+    "static/js/main.2905cd1d.js"
   ]
 }
