@@ -6,7 +6,8 @@ import { App } from 'App';
 import { GlobalStyle } from 'styleConfig/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styleConfig/theme';
-import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
+
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

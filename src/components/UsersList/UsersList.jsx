@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Table, Row, Col, Empty, Button, Space, Typography, Image } from 'antd';
 import { CaretLeftFilled, CaretRightFilled } from '@ant-design/icons';
 import { Spinner, Box } from 'components/ui';
+import styled from 'styled-components';
 
 export const UsersList = () => {
   const [skip, setSkip] = useState(true);
@@ -89,12 +90,13 @@ export const UsersList = () => {
         <>
           <Row>
             <Col xs={24}>
-              <Table
+              <StyledTable
                 dataSource={partialUsers?.map(item => ({
                   ...item,
                   key: item.id,
                 }))}
                 columns={columns}
+            
                 pagination={{
                   defaultPageSize: '10',
                   showSizeChanger: true,
@@ -125,3 +127,25 @@ export const UsersList = () => {
     </>
   );
 };
+
+const StyledTable = styled(Table)`
+  .ant-table {
+    border-radius: 30px;
+  }
+  .ant-table .ant-table-container {
+    border-radius: 30px;
+  }
+  .ant-table table{
+    border-radius: 30px;
+  }
+  thead.ant-table-thead  tr th{
+  background: lightsalmon;
+
+  }
+  .ant-table-container, .ant-table-container table>thead>tr:first-child th:first-child {
+    border-radius: 30px 0 0 30px;
+}
+.ant-table-container, .ant-table-container table>thead>tr:first-child th:last-child {
+    border-radius: 0 30px 30px 0;
+}
+  `

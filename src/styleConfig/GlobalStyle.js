@@ -47,4 +47,7 @@ a {
 img.ant-image-preview-img {
   margin: 0 auto;
 }
+thead {
+  border-radius: 30px;
+}
 `;
